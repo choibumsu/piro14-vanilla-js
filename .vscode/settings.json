@@ -1,2 +1,14 @@
 {
+  "files.associations": {
+    "**/templates/*.html": "django-html",
+    "**/templates/*": "django-txt"
+  },
+  "html.format.templating": false,
+  "html.format.enable": false,
+  "prettier.disableLanguages": [
+    "django-html"
+  ],
+  "prettier.useTabs": true,
+  "prettier.singleQuote": true,
+  "prettier.semi": false
 }

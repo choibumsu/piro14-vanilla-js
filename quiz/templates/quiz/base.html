@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{% static 'images/logo.jpg' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}" />
+
+    <title>피로그래밍 | 자바스크립트 능력 고사</title>
+  </head>
+  <body>
+    <nav>
+      <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo" />
+      <h1 class="title">JavaScript TEST</h1>
+    </nav>
+    {% block main %} {% endblock %}
+  </body>
+</html>

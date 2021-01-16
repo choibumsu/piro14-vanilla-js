@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+	cursor: pointer;
+	outline: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a, a:hover, a:visited {
+  text-decoration: none;
+  color: inherit;
+}

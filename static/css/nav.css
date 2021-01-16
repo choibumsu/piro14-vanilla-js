@@ -8,6 +8,12 @@ nav {
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
 }
 
+nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 nav .logo {
   width: 28px;
   margin-right: 10px;

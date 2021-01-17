@@ -11,6 +11,7 @@
 
 {% block script %}
 <script defer src="{% static 'javascript/components/Quiz.js' %}"></script>
+<script defer src="{% static 'javascript/components/Result.js' %}"></script>
 <script defer src="{% static 'javascript/pages/StartPage.js' %}"></script>
 <script defer src="{% static 'javascript/pages/QuizPage.js' %}"></script>
 <script defer src="{% static 'javascript/pages/ResultPage.js' %}"></script>
@@ -76,4 +77,10 @@
         </div>
     </div>
 </main>
+
+<script>
+function getQuizListUrl() {
+  return '{% url "quiz:get_quiz_list" %}'
+}
+</script>
 {%endblock%}

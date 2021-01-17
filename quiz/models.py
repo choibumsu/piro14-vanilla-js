@@ -5,7 +5,7 @@ class Quiz(models.Model):
     question = models.TextField()
 
     def __str__(self):
-        return self.title
+        return self.question
 
 
 class Example(models.Model):

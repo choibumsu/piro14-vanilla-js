@@ -9,10 +9,10 @@ class QuizAdmin(admin.ModelAdmin):
 
 @admin.register(Example)
 class ExampleAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'question', 'title', 'is_answer')
+    list_display = ('pk', 'quiz', 'title', 'is_answer')
 
     def get_queryset(self, request):
-        return self.model.objects.select_related('question').all()
+        return self.model.objects.select_related('quiz').all()
 
-    def question(self, obj):
+    def quiz(self, obj):
         return obj.quiz.question

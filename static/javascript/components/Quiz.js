@@ -16,7 +16,7 @@ function Quiz(parent, props) {
           ${this.examples
 						.map(
 							(example, index) =>
-								/*html*/ `<li class="example" data-index="${index}">${example}</li>`
+								/*html*/ `<li class="example" data-index="${index}">${example.title}</li>`
 						)
 						.join('')}
         </ul>
@@ -27,11 +27,11 @@ function Quiz(parent, props) {
 		this.target.innerHTML = this.template
 		this.target = this.target.firstElementChild
 
-		this.exampleContainerElem = this.target.querySelector('.example-container')
+		this.exampleContainer = this.target.querySelector('.example-container')
 	}
 
 	this.bindEvents = () => {
-		this.exampleContainerElem.addEventListener('click', (e) => {
+		this.exampleContainer.addEventListener('click', (e) => {
 			this.clickEventListener(e)
 		})
 	}

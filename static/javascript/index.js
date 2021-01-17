@@ -3,21 +3,27 @@ const quizPage = new QuizPage()
 const resultPage = new ResultPage()
 
 function Router() {
-	this.route = (path) => {
+	this.route = async (path) => {
 		if (!history.state || path !== history.state.path)
 			history.pushState({ path }, '', path)
 
 		if (path === '') {
-			app.innerHTML = ''
 			startPage.init()
+			app.innerHTML = ''
 			app.appendChild(startPage.target)
 		} else if (path === 'quiz') {
+			await quizPage.init()
 			app.innerHTML = ''
-			quizPage.init()
 			app.appendChild(quizPage.target)
 		} else if (path === 'result') {
+			const resultList = quizPage.getResultList()
+			if (resultList.length === 0) {
+				this.route('quiz')
+				return
+			}
+
+			resultPage.init(resultList)
 			app.innerHTML = ''
-			resultPage.init()
 			app.appendChild(resultPage.target)
 		}
 	}

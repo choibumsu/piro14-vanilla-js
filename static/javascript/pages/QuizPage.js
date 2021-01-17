@@ -1,31 +1,24 @@
-const QUIZ_LIST = [
-	{
-		id: 1,
-		question: '자바스크립트는 자바에서 파생된 언어이다.',
-		examples: ['예', '아니오'],
-	},
-	{
-		id: 2,
-		question: '자바스크립트가 해당하는 것은?',
-		examples: ['프로토타입 기반 언어', '클래스 기반 언어', '변수 기반 언어'],
-	},
-	{
-		id: 3,
-		question: '다음 중 자바스크립트 변수 선언 방법이 아닌것은?',
-		examples: ['const', 'let', 'var', 'int'],
-	},
-]
-
 function QuizPage() {
-	this.init = () => {
+	this.quizList = []
+
+	this.init = async () => {
+		await this.loadQuizList()
 		this.setElements()
 		this.bindEvents()
 		this.setCurrentQuiz(this.quizList[0])
 	}
 
+	this.loadQuizList = async () => {
+		const apiUrl = getQuizListUrl()
+
+		const data = await (await fetch(apiUrl)).json()
+		this.quizList = data['quiz_list']
+	}
+
 	this.setElements = () => {
 		this.template = /*html*/ `
 			<div id="quiz-page">
+				<div class="quiz-container"></div>
 			</div>
 		`
 
@@ -33,9 +26,11 @@ function QuizPage() {
 		this.target.innerHTML = this.template
 		this.target = this.target.firstElementChild
 
-		this.quizList = QUIZ_LIST.map((quizInfo) => {
+		this.quizContainer = this.target.querySelector('.quiz-container')
+
+		this.quizList = this.quizList.map((quizInfo) => {
 			const quiz = new Quiz(this, quizInfo)
-			this.target.appendChild(quiz.target)
+			this.quizContainer.appendChild(quiz.target)
 
 			return quiz
 		})
@@ -73,5 +68,11 @@ function QuizPage() {
 		}, 800)
 	}
 
-	this.init()
+	this.getResultList = () => {
+		return this.quizList.map((quiz) => ({
+			question: quiz.question,
+			examples: quiz.examples,
+			answer: quiz.answer,
+		}))
+	}
 }

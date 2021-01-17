@@ -26,6 +26,4 @@ function StartPage() {
 	this.clickEventListener = () => {
 		router.route('quiz')
 	}
-
-	this.init()
 }

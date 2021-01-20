@@ -14,6 +14,7 @@
     <main>
       <section id="section-1">
         <div class="section-title">DOM 단일 객체 탐색</div>
+        <div class="section-description">• querySelector</div>
         <h1 id="title">제목입니다.</h1>
         <p class="content">본문입니다.</p>
         <footer>푸터입니다.</footer>
@@ -37,6 +38,8 @@
       </section>
       <section id="section-2">
         <div class="section-title">DOM 다중 객체 탐색</div>
+        <div class="section-description">• querySelectorAll</div>
+
         <ul>
           <li>1번 아이템</li>
           <li>2번 아이템</li>
@@ -56,6 +59,7 @@
       </section>
       <section id="section-3">
         <div class="section-title">DOM 트리 탐색 1</div>
+        <div class="section-description">• firstElementChild, lastElementChild, children, parentNode</div>
 
         <div>
           <div>부모</div>
@@ -92,6 +96,7 @@
       </section>
       <section id="section-4">
         <div class="section-title">DOM 트리 탐색 2</div>
+        <div class="section-description">• nextElementSibling, previousElementSlibing, closest</div>
 
         <div>
           <div class="parent grandfather">‣ 우리집 할아버지
@@ -126,6 +131,7 @@
       </section>
       <section id="section-5">
         <div class="section-title">DOM 탐색 문제 1</div>
+
         <div>
           <label for="input-1">type="checkbox"</label>
           <input type="checkbox" id="input-1"/>
@@ -150,6 +156,7 @@
       </section>
       <section id="section-6">
         <div class="section-title">DOM 탐색 문제 2</div>
+
         <div>
           <div class="city">‣ 관악구
             <div class="market">‣ 포도몰</div>
@@ -181,6 +188,8 @@
 
       <section id="section-7">
         <div class="section-title">DOM 객체 속성 조작</div>
+        <div class="section-description">• textContent, element attribute</div>
+
         <div class="target">안녕하세요. 자바스크립트를 공부해봐요!</div>
         <br/>
         <input type="text" value="입력을 해보세요!">
@@ -204,6 +213,8 @@
       </section>
       <section id="section-8">
         <div class="section-title">DOM 스타일 조작</div>
+        <div class="section-description">• style, classList</div>
+
         <div class="target" style="color: blue;">안녕하세요. 저는 파란색이예요.</div>
         <br/>
         <button class="small green">작은 초록색 버튼이예요</button>
@@ -231,6 +242,8 @@
       </section>
       <section id="section-9">
         <div class="section-title">DOM 객체 생성 및 삭제 1</div>
+        <div class="section-description">• createElement, appendChild</div>
+
         <div class="target">여기에 DOM을 만들거예요.</div>
 
         <hr/>
@@ -251,6 +264,8 @@
       </section>
       <section id="section-10">
         <div class="section-title">DOM 객체 생성 및 삭제 2</div>
+        <div class="section-description">• innerHTML, XSS</div>
+
         <div class="target">여기에 DOM을 만들거예요.</div>
 
         <hr/>
@@ -276,6 +291,8 @@ target10.innerHTML = `
       </section>
       <section id="section-11">
         <div class="section-title">DOM 객체 생성 및 삭제 3</div>
+        <div class="section-description">• DOMParser</div>
+
         <div class="target">여기에 DOM을 만들거예요.</div>
 
         <hr/>
@@ -296,6 +313,7 @@ target11.appendChild(newDiv)
       </section>
       <section id="section-12">
         <div class="section-title">DOM 조작 문제 1</div>
+
         <button>버튼</button>
 
         <hr/>
@@ -311,6 +329,7 @@ target11.appendChild(newDiv)
       </section>
       <section id="section-13">
         <div class="section-title">DOM 조작 문제 2</div>
+
         <div class="container">
           <button>
             <span>버튼 - </span>
@@ -331,6 +350,7 @@ target11.appendChild(newDiv)
       </section>
       <section id="section-14">
         <div class="section-title">Event란?</div>
+
         <div class="btn-container">
           <button class="up-btn">맨 위로</button>
           <button class="toggle-btn">모드 변경</button>
@@ -403,6 +423,8 @@ target11.appendChild(newDiv)
       </section>
       <section id="section-15">
         <div class="section-title">Event 등록 및 해제 1</div>
+        <div class="section-description">• onEvent</div>
+
         <button>이 버튼에 이벤트를 걸어볼게요</button>
 
         <hr/>
@@ -429,6 +451,8 @@ button15.onclick = () => {}
       </section>
       <section id="section-16">
         <div class="section-title">Event 등록 및 해제 2</div>
+        <div class="section-description">• addEventListener, removeEventListener</div>
+
         <button>이 버튼에 이벤트를 걸어볼게요</button>
 
         <hr/>
@@ -458,6 +482,8 @@ button16.removeEventListener('click', event2)
       </section>
       <section id="section-17">
         <div class="section-title">Event Target</div>
+        <div class="section-description">• event.target</div>
+
         <input type="text" value="" />
         <div class="text">여기에 나오게 할 거예요 ↓</div>
         <div class="target"></div>
@@ -478,6 +504,7 @@ input17.addEventListener('input', (e) => {
       </section>
       <section id="section-18">
         <div class="section-title">Event Prevent Default</div>
+        <div class="section-description">• preventDefault</div>
         
         <a href="https://github.com/choibumsu" target="_blank">깃허브</a>
 

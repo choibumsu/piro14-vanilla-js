@@ -46,6 +46,13 @@ hr {
 	font-size: 28px;
 	font-weight: 700;
 	color: #6c6ec6;
+	margin-bottom: 20px;
+}
+
+.section-description {
+	font-size: 17px;
+	font-weight: 500;
+	color: #222;
 	margin-bottom: 40px;
 }
 
@@ -173,6 +180,10 @@ hr {
 
 #section-14.dark .section-title {
 	color: pink;
+}
+
+#section-14.dark .section-description {
+	color: #ddd;
 }
 
 #section-14.dark button {

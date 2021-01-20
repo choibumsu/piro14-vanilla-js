@@ -1,0 +1,281 @@
+body {
+	display: grid;
+	grid-template-columns: 250px 1fr;
+	height: 100vh;
+}
+
+nav {
+	height: 100vh;
+	padding: 50px 20px;
+	border-right: 1px solid #eee;
+}
+
+nav li {
+	font-size: 18px;
+	font-weight: 500;
+	color: #555;
+	cursor: pointer;
+	margin-bottom: 8px;
+}
+
+nav li:hover {
+	color: #228;
+}
+
+nav .divider {
+	width: 100%;
+	height: 1px;
+	background-color: #ddd;
+	margin: 15px 0;
+}
+
+main {
+	overflow-y: scroll;
+}
+
+section {
+	height: 100vh;
+	padding: 50px;
+}
+
+hr {
+	margin: 40px 0;
+}
+
+.section-title {
+	font-size: 28px;
+	font-weight: 700;
+	color: #6c6ec6;
+	margin-bottom: 40px;
+}
+
+.code {
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 0.75px;
+	padding: 0 15px;
+	white-space: pre-line;
+	color: #eee8d5;
+	border-radius: 8px;
+	background-color: #003541;
+}
+
+
+#section-4 .child {
+	padding-left: 30px;
+}
+
+#section-6 .market {
+	padding-left: 30px;
+}
+
+#section-6 .market div {
+	padding-left: 30px;
+}
+
+#section-8 button {
+	border-radius: 8px;
+	color: #fff;
+	width: 225px;
+	height: 60px;
+	font-size: 17px;
+	font-weight: 500;
+	background-color: gray;
+}
+
+#section-8 button.green {
+	background-color: green;
+}
+
+#section-8 button.orange {
+	background-color: orange;
+}
+
+#section-8 button.small {
+	width: 150px;
+	height: 30px;
+	font-size: 13px;
+}
+
+#section-8 button.large {
+	width: 300px;
+	height: 90px;
+	font-size: 21px;
+	font-weight: 700;
+}
+
+#section-12 button, #section-13 button {
+	border-radius: 8px;
+	color: #fff;
+	width: 225px;
+	height: 60px;
+	font-size: 17px;
+	font-weight: 500;
+	background-color: gray;
+}
+
+#section-13 a {
+	color: orange;
+	text-decoration: underline;
+}
+
+
+#section-14 .btn-container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+#section-14 button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 120px;
+	height: 50px;
+	font-size: 18px;
+	font-weight: 500;
+	margin-right: 16px;
+	border-radius: 8px;
+	background-color: gray;
+	color: #fff;
+}
+
+#section-14 input {
+	width: 400px;
+	height: 40px;
+	font-size: 18px;
+	margin-bottom: 4px;
+	padding: 2px 4px;
+}
+
+#section-14 .input-target {
+	font-size: 18px;
+	font-weight: 500;
+	margin-bottom: 40px;
+}
+
+#section-14 .offset-container {
+	width: 400px;
+	height: 180px;
+	box-shadow: 0 1px 16px rgba(0, 0, 0, 0.2);
+	margin-bottom: 10px;
+}
+
+#section-14 .value-container span {
+	font-size: 18px;
+	color: #222;
+}
+
+#section-14.dark {
+	background-color: #444;
+}
+
+#section-14.dark .section-title {
+	color: pink;
+}
+
+#section-14.dark button {
+	background-color: lightgray;
+	color: #222;
+}
+
+#section-14.dark .input-target {
+	color: #fff;
+}
+
+#section-14.dark .offset-container {
+	box-shadow: 0 1px 16px rgba(255, 255, 255, 0.8);
+}
+
+#section-14.dark .value-container span {
+	color: #fff;
+}
+
+#section-14.dark .code {
+	background-color:pink;
+	color: #222;
+}
+
+#section-15 button, #section-16 button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	font-weight: 500;
+	width: 250px;
+	height: 50px;
+	border-radius: 4px;
+	background-color: coral;
+	color: #fff;
+}
+
+#section-15 button:hover, #section-16 button:hover {
+	filter: brightness(1.1);
+}
+
+#section-17 input {
+	width: 400px;
+	height: 40px;
+	font-size: 18px;
+	margin-bottom: 8px;
+	padding: 2px 4px;
+}
+
+#section-17 .text {
+	size: 15px;
+	color: #222;
+	margin-bottom: 8px;
+}
+
+#section-17 .target {
+	height: 24px;
+	font-size: 18px;
+	font-weight: 500;
+	color: #222;
+}
+
+#section-19 button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	height: 50px;
+	font-size: 17px;
+	font-weight: 500;
+	background-color: lightblue;
+	color: #444;
+	border-radius: 4px;
+	margin-bottom: 16px;
+}
+
+#section-19 button:hover {
+	filter: brightness(1.05);
+}
+
+#section-19 li {
+	font-size: 17px;
+	font-weight: 500;
+	color: #222;
+	margin-bottom: 4px;
+}
+
+#section-20 input {
+	width: 400px;
+	height: 40px;
+	font-size: 18px;
+	margin-bottom: 8px;
+	padding: 2px 4px;
+	display: block;
+}
+
+#section-20 a {
+	font-size: 18px;
+	font-weight: 500;
+	color: coral;
+	text-decoration: underline;
+}
+
+#section-20 a:hover {
+	filter: brightness(1.05);
+}

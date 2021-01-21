@@ -27,18 +27,6 @@ function Router() {
 			app.appendChild(resultPage.target)
 		}
 	}
-
-	this.back = (num = -1) => {
-		history.go(num)
-	}
-
-	this.go = (num = 1) => {
-		history.go(num)
-	}
-
-	this.getState = () => {
-		return history.state
-	}
 }
 
 const router = new Router()

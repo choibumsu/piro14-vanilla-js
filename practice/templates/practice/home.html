@@ -152,6 +152,9 @@
 
           HINT : `document.querySelector('[data-id="3"]')`는 data-id 속성으로 선택했습니다.
 
+          const radioInput = document.querySelector('input[type="radio"]')
+          console.log(radioInput)
+
         </p>
       </section>
       <section id="section-6">
@@ -183,6 +186,11 @@
 
           HINT : nextElementSibling, closest 등의 메소드를 사용해보세요.
 
+          const myCity = me.closest('.city')
+          const nextCity = myCity.nextElementSibling
+          const friend = nextCity.querySelector('.friend')
+          const friendMarket = friend.closest('.market')
+
         </p>
       </section>
 
@@ -203,7 +211,7 @@
 
           target7.textContent = 'Django가 그립다,,,'
 
-          const input = section7.querySelector('input')
+          const input = document.querySelector('#section-7 input')
           console.log(input)
           console.log(input.value)
 
@@ -228,7 +236,7 @@
           target8.style.color = 'red'
           target8.style.fontSize = '24px'
 
-          const btn = section8.querySelector('button')
+          const btn = document.querySelector('#section-8 button')
           console.log(btn)
           console.log(btn.classList)
 
@@ -291,7 +299,7 @@ target10.innerHTML = `
       </section>
       <section id="section-11">
         <div class="section-title">DOM 객체 생성 및 삭제 3</div>
-        <div class="section-description">• DOMParser</div>
+        <div class="section-description">• DOMParser를 사용하면 append하기 전에 XSS 공격이 가능한 요소를 제거할 수 있는 장점이 있습니다.</div>
 
         <div class="target">여기에 DOM을 만들거예요.</div>
 
@@ -302,8 +310,10 @@ const target11 = document.querySelector('#section-11 .target')
 console.log(target11)
 
 const newTemplate = `
-    &lt;div&gt;공격당하지 않습니다.&lt;/div&gt;
-    &lt;img src="//" onerror="alert('xss attack!!!!')" /&gt;
+    &lt;div&gt;
+        &lt;div&gt;공격당할 수 있습니다.&lt;/div&gt;
+        &lt;img src="//" onerror="alert('xss attack!!!!')" /&gt;
+    &lt;/div&gt;
 `
 
 const newDiv = new DOMParser().parseFromString(newTemplate, 'text/html').body.firstElementChild
@@ -325,6 +335,9 @@ target11.appendChild(newDiv)
           1. 버튼에 0.5s 트랜지션을 주고, X축으로 200px 움직여보세요.
           - HINT : button12 의 스타일을 조작하면 됩니다.
 
+          button12.style.transition = '0.5s'
+          button12.style.transform = 'translateX(200px)'
+
         </p>
       </section>
       <section id="section-13">
@@ -339,13 +352,25 @@ target11.appendChild(newDiv)
 
         <hr/>
 
-        <p class="code">
-          const container = document.querySelector('#section-13 .container')
-          console.log(container)
+        <p class="code" style="white-space: pre-wrap;">
+const container = document.querySelector('#section-13 .container')
+console.log(container)
 
-          2. 화면에 보이는 버튼과 동일한 버튼을 본인 깃허브 링크를 걸어서 container에 추가해주세요.
-          - HINT : DOMParser와 appendChild 메소드로 간단하게 구현할 수 있습니다.
+2. 화면에 보이는 버튼과 동일한 버튼을 본인 깃허브 링크를 걸어서 container에 추가해주세요.
+- HINT : DOMParser와 appendChild 메소드로 간단하게 구현할 수 있습니다.
 
+function createFromString(template) {
+  return new DOMParser().parseFromString(template, 'text/html').body.firstElementChild
+}
+
+const newButtonTemplate = `
+  &lt;button&gt;
+    &lt;span&gt;버튼 - &lt;/span&gt;
+    &lt;a href="https://github.com/choibumsu" target="_blank"&gt;최범수의 깃허브&lt;/a&gt;
+  &lt;/button&gt;
+`
+const newButton = createFromString(newButtonTemplate)
+container.appendChild(newButton)
         </p>
       </section>
       <section id="section-14">
@@ -446,7 +471,7 @@ button15.onclick = () => {
   })
 }
 
-button15.onclick = () => {}
+button15.onclick = null
         </p>
       </section>
       <section id="section-16">
@@ -524,7 +549,7 @@ a18.addEventListener('click', (e) => {
         <div class="section-title">Event 문제 1</div>
         
         <button>추가 버튼</button>
-        <ul class="button-container">
+        <ul class="item-container">
           <li>아이템 1</li>
           <li>아이템 2</li>
           <li>아이템 3</li>
@@ -532,13 +557,19 @@ a18.addEventListener('click', (e) => {
 
         <hr/>
 
-        <p class="code">
-          const addButton = document.querySelector('#section-19 button')
-          const buttonContainer = document.querySelector('#section-19 .button-container')
+        <p class="code" style="white-space: pre-wrap;">
+const addButton = document.querySelector('#section-19 button')
+const itemContainer = document.querySelector('#section-19 .item-container')
 
-          1. 버튼을 클릭할 때마다 아이템을 하나씩 추가하는 이벤트를 작성해주세요.
-          - HINT : 버튼 컨테이너에 새로 만든 버튼을 appenChild 하세요.
+1. 버튼을 클릭할 때마다 아이템을 하나씩 추가하는 이벤트를 작성해주세요.
+- HINT : 버튼 컨테이너에 새로 만든 버튼을 appendChild 하세요.
 
+addButton.addEventListener('click', () => {
+  const newLength = itemContainer.children.length + 1
+  const newItem = document.createElement('li')
+  newItem.textContent = `아이템 ${newLength}`
+  itemContainer.appendChild(newItem)
+})
         </p>
       </section>
       <section id="section-20">
@@ -549,13 +580,16 @@ a18.addEventListener('click', (e) => {
 
         <hr/>
 
-        <p class="code">
-          const linkInput = document.querySelector('#section-20 input')
-          const link = document.querySelector('#section-20 a')
+        <p class="code" style="white-space: pre-wrap;">
+const linkInput = document.querySelector('#section-20 input')
+const link = document.querySelector('#section-20 a')
 
-          2. 링크를 클릭했을때, input태그에 입력된 주소로 이동하도록 해주세요.
-          - HINT : input태그에 입력된 value를 a태그 href 속성에 넣어줍니다.
-          
+2. 링크를 클릭했을때, input태그에 입력된 주소로 이동하도록 해주세요.
+- HINT : input태그에 입력된 value를 a태그 href 속성에 넣어줍니다.
+
+linkInput.addEventListener('input', (e) => {
+  link.href = e.target.value
+})
         </p>
       </section>
     </main>

@@ -19,64 +19,7 @@
 {% endblock %}
 
 {% block main %}
-<main id="app">
-    <div id="start-page">
-        <h1 class="title">🎊 Welcome To JavaScript Test ✍️</h1>
-        <button class="start-btn">START</button>
-    </div>
-    <div id="quiz-page">
-        <div class="quiz-container">
-            <div class="quiz" data-id="1" style="opacity: 1;">
-                <div class="question">Q. 자바스크립트는 자바에서 파생된 언어이다.</div>
-                <ul class="example-container">
-                    <li class="example" data-index="0">네</li>
-                    <li class="example" data-index="1">아니오</li>
-                </ul>
-            </div>
-            <div class="quiz dp-none" data-id="2">
-                <div class="question">Q. 자바스크립트가 해당하는 것은?</div>
-                    <ul class="example-container">
-                        <li class="example" data-index="0">프로토타입 기반 언어</li>
-                        <li class="example" data-index="1">클래스 기반 언어</li>
-                        <li class="example" data-index="2">변수 기반 언어</li>
-                    </ul>
-                </div>
-            <div class="quiz dp-none" data-id="3">
-                <div class="question">Q. 다음 중 자바스크립트 변수 선언 방법이 아닌 것은?</div>
-                <ul class="example-container">
-                    <li class="example" data-index="0">const</li>
-                    <li class="example" data-index="1">let</li>
-                    <li class="example" data-index="2">var</li>
-                    <li class="example" data-index="3">int</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div id="result-page">
-        <div class="inner-container">
-            <h1 class="title">Result 🥸</h1>
-            <div class="result-container">
-                <div class="result">
-                    <div class="result-icon correct">👍 Excellent!</div>
-                    <div class="question">Q. 자바스크립트는 자바에서 파생된 언어이다.</div>
-                    <div class="user-answer">A. 아니오</div>
-                </div>
-                <div class="result">
-                    <div class="result-icon incorrect">🤦&zwj;♂️ No...</div>
-                    <div class="question">Q. 자바스크립트가 해당하는 것은?</div>
-                    <div class="user-answer">A. 클래스 기반 언어</div>
-                    <div class="correct-answer">Right Answer. 프로토타입 기반 언어</div>
-                </div>
-                <div class="result">
-                    <div class="result-icon correct">👍 Excellent!</div>
-                    <div class="question">Q. 다음 중 자바스크립트 변수 선언 방법이 아닌 것은?</div>
-                    <div class="user-answer">A. int</div>
-                </div>
-            </div>
-            <button class="restart-btn">RESTART</button>
-        </div>
-    </div>
-</main>
+<main id="app"></main>
 
 <script>
 function getQuizListUrl() {

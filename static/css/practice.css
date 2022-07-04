@@ -42,6 +42,21 @@ hr {
 	margin: 40px 0;
 }
 
+.hide {
+	display: none;
+}
+
+.prettyprint {
+	white-space: pre-line;
+	padding: 14px !important;
+	font-size: 1.1rem;
+	line-height: 1.6;
+	background-color: #f6f8fa;
+	border-radius: 6px;
+	border: 1px solid #fff;
+	margin: 2px;
+}
+
 .section-title {
 	font-size: 28px;
 	font-weight: 700;
@@ -66,7 +81,6 @@ hr {
 	border-radius: 8px;
 	background-color: #003541;
 }
-
 
 #section-4 .child {
 	padding-left: 30px;
@@ -111,7 +125,8 @@ hr {
 	font-weight: 700;
 }
 
-#section-12 button, #section-13 button {
+#section-11 button,
+#section-12 button {
 	border-radius: 8px;
 	color: #fff;
 	width: 225px;
@@ -121,20 +136,19 @@ hr {
 	background-color: gray;
 }
 
-#section-13 a {
+#section-12 a {
 	color: orange;
 	text-decoration: underline;
 }
 
-
-#section-14 .btn-container {
+#section-13 .btn-container {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	margin-bottom: 40px;
 }
 
-#section-14 button {
+#section-13 button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -148,7 +162,7 @@ hr {
 	color: #fff;
 }
 
-#section-14 input {
+#section-13 input {
 	width: 400px;
 	height: 40px;
 	font-size: 18px;
@@ -156,59 +170,55 @@ hr {
 	padding: 2px 4px;
 }
 
-#section-14 .input-target {
+#section-13 .input-target {
 	font-size: 18px;
 	font-weight: 500;
 	margin-bottom: 40px;
 }
 
-#section-14 .offset-container {
+#section-13 .offset-container {
 	width: 400px;
 	height: 180px;
 	box-shadow: 0 1px 16px rgba(0, 0, 0, 0.2);
 	margin-bottom: 10px;
 }
 
-#section-14 .value-container span {
+#section-13 .value-container span {
 	font-size: 18px;
 	color: #222;
 }
 
-#section-14.dark {
+#section-13.dark {
 	background-color: #444;
 }
 
-#section-14.dark .section-title {
+#section-13.dark .section-title {
 	color: pink;
 }
 
-#section-14.dark .section-description {
+#section-13.dark .section-description {
 	color: #ddd;
 }
 
-#section-14.dark button {
+#section-13.dark button {
 	background-color: lightgray;
 	color: #222;
 }
 
-#section-14.dark .input-target {
+#section-13.dark .input-target {
 	color: #fff;
 }
 
-#section-14.dark .offset-container {
+#section-13.dark .offset-container {
 	box-shadow: 0 1px 16px rgba(255, 255, 255, 0.8);
 }
 
-#section-14.dark .value-container span {
+#section-13.dark .value-container span {
 	color: #fff;
 }
 
-#section-14.dark .code {
-	background-color:pink;
-	color: #222;
-}
-
-#section-15 button, #section-16 button {
+#section-14 button,
+#section-15 button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -221,11 +231,12 @@ hr {
 	color: #fff;
 }
 
-#section-15 button:hover, #section-16 button:hover {
+#section-14 button:hover,
+#section-15 button:hover {
 	filter: brightness(1.1);
 }
 
-#section-17 input {
+#section-16 input {
 	width: 400px;
 	height: 40px;
 	font-size: 18px;
@@ -233,20 +244,20 @@ hr {
 	padding: 2px 4px;
 }
 
-#section-17 .text {
+#section-16 .text {
 	size: 15px;
 	color: #222;
 	margin-bottom: 8px;
 }
 
-#section-17 .target {
+#section-16 .target {
 	height: 24px;
 	font-size: 18px;
 	font-weight: 500;
 	color: #222;
 }
 
-#section-19 button {
+#section-18 button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -260,18 +271,18 @@ hr {
 	margin-bottom: 16px;
 }
 
-#section-19 button:hover {
+#section-18 button:hover {
 	filter: brightness(1.05);
 }
 
-#section-19 li {
+#section-18 li {
 	font-size: 17px;
 	font-weight: 500;
 	color: #222;
 	margin-bottom: 4px;
 }
 
-#section-20 input {
+#section-19 input {
 	width: 400px;
 	height: 40px;
 	font-size: 18px;
@@ -280,13 +291,24 @@ hr {
 	display: block;
 }
 
-#section-20 a {
+#section-19 a {
 	font-size: 18px;
 	font-weight: 500;
 	color: coral;
 	text-decoration: underline;
 }
 
-#section-20 a:hover {
+#section-19 a:hover {
 	filter: brightness(1.05);
+}
+
+.answer-btn {
+	text-align: center;
+	padding: 6px;
+	border-radius: 4px;
+	margin-top: 4px;
+	font-weight: 500;
+	color: #fff;
+	background-color: #6c6ec6;
+	cursor: pointer;
 }

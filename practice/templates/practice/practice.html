@@ -1,0 +1,623 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="{% static 'css/global.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/practice.css' %}" />
+		<title>Document</title>
+
+		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	</head>
+	<body>
+		{% include 'practice/nav.html' %}
+		<main>
+			<section id="section-1">
+				<div class="section-title">DOM 단일 객체 탐색</div>
+				<div class="section-description">• querySelector</div>
+				<h1 id="title">제목입니다.</h1>
+				<p class="content">본문입니다.</p>
+				<footer>푸터입니다.</footer>
+				<button data-test="1">버튼입니다.</button>
+
+				<hr />
+				<pre class="prettyprint lang-js">
+					const title = document.querySelector('#title') 
+          console.log('id로 선택', title) 
+
+          const content = document.querySelector('.content')
+					console.log('class로 선택', content) 
+
+          const footer = document.querySelector('footer') 
+          console.log('tag로 선택', footer)
+
+					const button = document.querySelector('[data-test="1"]')
+					console.log('기타 속성으로 선택', button)
+				</pre
+				>
+			</section>
+			<section id="section-2">
+				<div class="section-title">DOM 다중 객체 탐색</div>
+				<div class="section-description">• querySelectorAll</div>
+
+				<ul>
+					<li>1번 아이템</li>
+					<li>2번 아이템</li>
+					<li>3번 아이템</li>
+					<li>4번 아이템</li>
+				</ul>
+
+				<hr />
+
+				<pre class="prettyprint lang-js">
+					const items = document.querySelectorAll('section li')
+					console.log('여러 DOM 객체 선택', items) 
+          
+          items.forEach(item => console.log(item))
+				</pre
+				>
+			</section>
+			<section id="section-3">
+				<div class="section-title">DOM 트리 탐색 1</div>
+				<div class="section-description">
+					• firstElementChild, lastElementChild, children, parentNode
+				</div>
+
+				<div>
+					<div>부모</div>
+					<div class="parent" style="padding-left: 20px">
+						<div class="child-1">첫번째 자식</div>
+						<div class="child-2">두번째 자식</div>
+						<div class="child-3">세번째 자식</div>
+						<div class="child-4">네번째 자식</div>
+					</div>
+				</div>
+
+				<hr />
+
+				<pre class="prettyprint lang-js">
+					const parent = document.querySelector('.parent') 
+          console.log(parent)
+
+					const first = parent.firstChild 
+          const last = parent.lastChild
+					console.log(first, last) 
+          
+          const firstElement = parent.firstElementChild
+					const lastElement = parent.lastElementChild 
+          console.log(firstElement, lastElement) 
+          
+          const parentNode = firstElement.parentNode
+					console.log(parentNode) 
+          
+          const childNodes = parent.childNodes 
+          const children = parent.children 
+          console.log(childNodes, children)
+				</pre
+				>
+			</section>
+			<section id="section-4">
+				<div class="section-title">DOM 트리 탐색 2</div>
+				<div class="section-description">
+					• nextElementSibling, previousElementSlibing, closest
+				</div>
+
+				<div>
+					<div class="parent grandfather">
+						‣ 우리집 할아버지
+						<div class="child parent" data-id="1">
+							‣ 첫째
+							<div class="child grandson">‣ 손자</div>
+						</div>
+						<div class="child" data-id="2">‣ 둘째</div>
+						<div class="child" data-id="3">‣ 셋째</div>
+						<div class="child" data-id="4">‣ 막내</div>
+					</div>
+					<div class="grandfather" style="margin-top: 20px">
+						‣ 이웃집 할아버지
+					</div>
+				</div>
+
+				<hr />
+
+				<pre class="prettyprint lang-js">
+					const child3 = document.querySelector('.child[data-id="3"]')
+					console.log(child3) 
+          
+          const nextSlibing = child3.nextElementSibling
+					const previousSlibing = child3.previousElementSibling
+					console.log(nextSlibing, previousSlibing) 
+          
+          const grandson = document.querySelector('.grandson') 
+          console.log(grandson) 
+          
+          const myGrandFa = grandson.closest('.grandfather') 
+          console.log(myGrandFa)
+				</pre
+				>
+			</section>
+			<section id="section-5">
+				<div class="section-title">DOM 탐색 문제 1</div>
+
+				<div>
+					<label for="input-1">type="checkbox"</label>
+					<input type="checkbox" id="input-1" />
+				</div>
+				<div>
+					<label for="input-2">type="radio"</label>
+					<input type="radio" id="input-2" />
+				</div>
+				<div>
+					<label for="input-3">type="text"</label>
+					<input type="text" id="input-3" />
+				</div>
+
+				<hr />
+
+				<pre class="prettyprint lang-js">
+					/* 
+          1. radio type인 INPUT 태그를 선택해주세요. 
+          HINT : `document.querySelector('[data-id="3"]')`는 data-id 속성으로 선택했습니다. 
+          */
+          <span class="hide">
+          const radioInput = document.querySelector('input[type="radio"]') 
+          console.log(radioInput)
+          </span>
+				</pre>
+				<div class="answer-btn" onClick="showAnswer('section-5', event)">
+					모범답안
+				</div>
+			</section>
+			<section id="section-6">
+				<div class="section-title">DOM 탐색 문제 2</div>
+
+				<div>
+					<div class="city">
+						‣ 관악구
+						<div class="market">‣ 포도몰</div>
+						<div class="market">
+							‣ 봉천시장
+							<div class="me">‣ 나!</div>
+						</div>
+						<div class="market">‣ 신원시장</div>
+					</div>
+					<div class="city">
+						‣ 동작구
+						<div class="market">‣ 노량진 수산시장</div>
+						<div class="market">
+							‣ 흑석시장
+							<div class="friend">‣ 친구 A</div>
+						</div>
+						<div class="market">‣ 상도시장</div>
+					</div>
+				</div>
+
+				<hr />
+
+				<pre class="prettyprint lang-js">
+          const me = document.querySelector('.me') 
+
+          /*
+					2. document 객체를 사용하지 않고, me 변수만 사용하여 옆 동네 친구가 살고 있는 곳의 시장을 선택해주세요. 
+          HINT : nextElementSibling, closest 등의 메소드를 사용해보세요. 
+          */
+          
+          <span class="hide">
+          const myCity = me.closest('.city') 
+          const nextCity = myCity.nextElementSibling 
+
+          const friend = nextCity.querySelector('.friend') 
+          const friendMarket = friend.closest('.market')
+          </span>
+				</pre>
+				<div class="answer-btn" onClick="showAnswer('section-6', event)">
+					모범답안
+				</div>
+			</section>
+
+			<section id="section-7">
+				<div class="section-title">DOM 객체 속성 조작</div>
+				<div class="section-description">• textContent, element attribute</div>
+
+				<div class="target">JavaScript</div>
+				<br />
+				<input type="text" value="입력을 해보세요!" />
+
+				<hr />
+
+				<pre class="prettyprint lang-js">
+					const target7 = document.querySelector('#section-7 .target')
+					console.log(target7) 
+          console.log(target7.textContent)
+
+					target7.textContent = 'Django' 
+
+          const input = document.querySelector('#section-7 input') 
+          console.log(input)
+					console.log(input.value) 
+          
+          input.value = '다 지워버리겠습니다.'
+				</pre
+				>
+			</section>
+			<section id="section-8">
+				<div class="section-title">DOM 스타일 조작</div>
+				<div class="section-description">• style, classList</div>
+
+				<div class="target" style="color: blue">BLUE</div>
+				<br />
+				<button class="small green">GREEN</button>
+
+				<hr />
+
+				<pre class="prettyprint lang-js">
+					const target8 = document.querySelector('#section-8 .target')
+					console.log(target8) 
+          
+          target8.style.color = 'red'
+					target8.style.fontSize = '24px' 
+
+          const btn = document.querySelector('#section-8 button') 
+          console.log(btn)
+					console.log(btn.classList) 
+          
+          btn.classList.remove('green')
+					btn.classList.add('orange') 
+
+          btn.classList.remove('small')
+					btn.classList.add('large')
+				</pre
+				>
+			</section>
+			<section id="section-9">
+				<div class="section-title">DOM 객체 생성 및 삭제 1</div>
+				<div class="section-description">• createElement, appendChild</div>
+
+				<div class="target">여기에 DOM을 만들거예요.</div>
+
+				<hr />
+
+				<pre class="prettyprint lang-js">
+					const target9 = document.querySelector('#section-9 .target')
+					console.log(target9) 
+          
+          const newDiv = document.createElement('div')
+					newDiv.textContent = '새로운 DOM 객체입니다!' 
+          console.log(newDiv)
+
+					target9.appendChild(newDiv) 
+          target9.removeChild(newDiv)
+				</pre
+				>
+			</section>
+			<section id="section-10">
+				<div class="section-title">DOM 객체 생성 및 삭제 2</div>
+				<div class="section-description">• innerHTML, XSS</div>
+
+				<div class="target">여기에 DOM을 만들거예요.</div>
+
+				<hr />
+
+				<pre class="prettyprint lang-js" style="white-space: pre-wrap">
+const target10 = document.querySelector('#section-10 .target')
+console.log(target10) 
+          
+target10.innerHTML = `
+    &lt;div&gt; 
+        바깥쪽 DOM
+        &lt;div&gt; 
+            안쪽 DOM 
+        &lt;/div&gt; 
+    &lt;/div&gt;
+` 
+				</pre
+				>
+			</section>
+			<section id="section-11">
+				<div class="section-title">DOM 조작 문제 1</div>
+
+				<button>버튼</button>
+
+				<hr />
+
+				<pre class="prettyprint lang-js">
+					const button11 = document.querySelector('#section-11 button')
+					console.log(button11) 
+
+          /*
+          1. 버튼에 0.5s 트랜지션을 주고, X축으로 200px 움직여보세요. 
+          - HINT : button11 의 스타일을 조작하면 됩니다.
+          */
+
+          <span class="hide">
+					button11.style.transition = '0.5s' 
+          button11.style.transform = 'translateX(200px)'
+          </span>
+				</pre>
+				<div class="answer-btn" onClick="showAnswer('section-11', event)">
+					모범답안
+				</div>
+			</section>
+			<section id="section-12">
+				<div class="section-title">DOM 조작 문제 2</div>
+
+				<div class="container">
+					<button>
+						<span>버튼 - </span>
+						<a href="https://github.com/choibumsu" target="_blank">
+							최범수의 깃허브
+						</a>
+					</button>
+				</div>
+
+				<hr />
+
+				<pre class="prettyprint lang-js" style="white-space: pre-wrap">
+const container = document.querySelector('#section-12 .container')
+console.log(container) 
+
+/*
+2. 화면에 보이는 버튼과 동일한 버튼을 본인 깃허브 링크를 걸어서 container에 추가해주세요. 
+- HINT : DOMParser와 appendChild 메소드로 간단하게 구현할 수 있습니다. 
+*/
+
+<span class="hide">
+const newButton = document.createElement('button')
+newButton.innerHTML = `
+        &lt;span&gt;버튼 - &lt;/span&gt; 
+        &lt;a href="https://github.com/choibumsu" target="_blank"&gt;최범수의 깃허브&lt;/a&gt; 
+` 
+
+container.appendChild(newButton)</span>
+				</pre>
+				<div class="answer-btn" onClick="showAnswer('section-12', event)">
+					모범답안
+				</div>
+			</section>
+			<section id="section-13">
+				<div class="section-title">Event란?</div>
+
+				<div class="btn-container">
+					<button class="up-btn">맨 위로</button>
+					<button class="toggle-btn">모드 변경</button>
+				</div>
+				<input type="text" value="" />
+				<div class="input-target">
+					<span>‣</span>
+					<span class="target"></span>
+				</div>
+
+				<div class="offset-container"></div>
+				<div class="value-container">
+					<div class="x">
+						<span>X 좌표값 : </span>
+						<span class="value"></span>
+					</div>
+					<div class="y">
+						<span>Y 좌표값 : </span>
+						<span class="value"></span>
+					</div>
+				</div>
+
+				<script>
+					const main = document.querySelector('main')
+					const sectiopn13 = document.querySelector('#section-13')
+					const upBtn = sectiopn13.querySelector('.up-btn')
+					const toggleBtn = sectiopn13.querySelector('.toggle-btn')
+					const input13 = sectiopn13.querySelector('input')
+					const target13 = sectiopn13.querySelector('.target')
+					const offsetContainer = sectiopn13.querySelector('.offset-container')
+					const xValue = sectiopn13.querySelector('.value-container .x .value')
+					const yValue = sectiopn13.querySelector('.value-container .y .value')
+
+					upBtn.addEventListener('click', () => {
+						main.scrollTo({
+							top: 0,
+							left: 0,
+							behavior: 'smooth',
+						})
+					})
+
+					toggleBtn.addEventListener('click', () => {
+						if (sectiopn13.classList.contains('dark')) {
+							sectiopn13.classList.remove('dark')
+							return
+						}
+						sectiopn13.classList.add('dark')
+					})
+
+					input13.addEventListener('input', (e) => {
+						target13.textContent = e.target.value
+					})
+
+					offsetContainer.addEventListener('mousemove', (e) => {
+						xValue.textContent = e.offsetX
+						yValue.textContent = e.offsetY
+					})
+				</script>
+
+				<hr />
+
+				<pre class="prettyprint lang-js">
+click event 
+input event 
+mouseover event</pre
+				>
+			</section>
+			<section id="section-14">
+				<div class="section-title">Event 등록 및 해제 1</div>
+				<div class="section-description">• onEvent</div>
+
+				<button>BUTTON</button>
+
+				<hr />
+
+				<pre class="prettyprint lang-js" style="white-space: pre-wrap">
+const button14 = document.querySelector('#section-14 button')
+console.log(button14) 
+
+button14.onclick = () => { 
+    alert('버튼이 클릭되었습니다.') 
+} 
+
+button14.onclick = () => { 
+    const main = document.querySelector('main') 
+    main.scrollTo({ 
+        top: 0, 
+        left: 0,
+        behavior: 'smooth' 
+    }) 
+} 
+
+button14.onclick = null
+				</pre
+				>
+			</section>
+			<section id="section-15">
+				<div class="section-title">Event 등록 및 해제 2</div>
+				<div class="section-description">
+					• addEventListener, removeEventListener
+				</div>
+
+				<button>BUTTON</button>
+
+				<hr />
+
+				<pre class="prettyprint lang-js" style="white-space: pre-wrap">
+const button15 = document.querySelector('#section-15 button')
+console.log(button15) 
+
+function event1 () { 
+    alert('버튼이 클릭되었습니다.') 
+} 
+button15.addEventListener('click', event1)
+
+function event2 () { 
+    const main = document.querySelector('main')
+    main.scrollTo({ top: 0, left: 0, behavior: 'smooth' }) 
+}
+button15.addEventListener('click', event2)
+
+button15.removeEventListener('click', event1)
+button15.removeEventListener('click', event2)
+				</pre
+				>
+			</section>
+			<section id="section-16">
+				<div class="section-title">Event Target</div>
+				<div class="section-description">• event.target</div>
+
+				<input type="text" value="" />
+				<div class="text">여기에 나오게 할 거예요 ↓</div>
+				<div class="target"></div>
+
+				<hr />
+
+				<pre class="prettyprint lang-js" style="white-space: pre-wrap">
+const input16 = document.querySelector('#section-16 input')
+console.log(input16) 
+
+const target16 = document.querySelector('#section-16 .target') 
+console.log(target16)
+
+input16.addEventListener('input', (e) => { 
+    target16.textContent = e.target.value 
+})
+				</pre
+				>
+			</section>
+			<section id="section-17">
+				<div class="section-title">Event Prevent Default</div>
+				<div class="section-description">• preventDefault</div>
+
+				<a href="https://github.com/choibumsu" target="_blank">깃허브</a>
+
+				<hr />
+
+				<pre class="prettyprint lang-js" style="white-space: pre-wrap">
+const a17 = document.querySelector('#section-17 a') 
+console.log(a17)
+
+a17.addEventListener('click', (e) => { 
+    e.preventDefault() 
+    alert('링크 접근을 막았습니다.') 
+})
+				</pre
+				>
+			</section>
+			<section id="section-18">
+				<div class="section-title">Event 문제 1</div>
+
+				<button>추가 버튼</button>
+				<ul class="item-container">
+					<li>아이템 1</li>
+					<li>아이템 2</li>
+					<li>아이템 3</li>
+				</ul>
+
+				<hr />
+
+				<pre class="prettyprint lang-js" style="white-space: pre-wrap">
+const addButton = document.querySelector('#section-18 button') 
+const itemContainer = document.querySelector('#section-18 .item-container')
+
+/*
+1. 버튼을 클릭할 때마다 아이템을 하나씩 추가하는 이벤트를 작성해주세요. 
+- HINT : 버튼 컨테이너에 새로 만든 버튼을 appendChild하세요. 
+*/
+
+<span class="hide">
+addButton.addEventListener('click', () => { 
+    const newLength = itemContainer.children.length + 1 
+    const newItem = document.createElement('li') 
+    newItem.textContent = `아이템 ${newLength}` 
+    itemContainer.appendChild(newItem)
+})</span>
+				</pre>
+				<div class="answer-btn" onClick="showAnswer('section-18', event)">
+					모범답안
+				</div>
+			</section>
+			<section id="section-19">
+				<div class="section-title">Event 문제 2</div>
+
+				<input type="text" value="" />
+				<a href="" target="_blank">링크입니다</a>
+
+				<hr />
+
+				<pre class="prettyprint lang-js" style="white-space: pre-wrap">
+const linkInput = document.querySelector('#section-19 input') 
+const link = document.querySelector('#section-19 a') 
+
+/*
+2. 링크를 클릭했을때, input태그에 입력된 주소로 이동하도록 해주세요. 
+- HINT : input태그에 입력된 value를 a태그 href 속성에 넣어줍니다.
+*/
+
+<span class="hide">
+linkInput.addEventListener('input', (e) => { 
+    link.href = e.target.value 
+})</span>
+				</pre>
+				<div class="answer-btn" onClick="showAnswer('section-19', event)">
+					모범답안
+				</div>
+			</section>
+		</main>
+
+		<script>
+			function showAnswer(id, event) {
+				const $hideList = document.querySelectorAll(`#${id} .hide`)
+
+				$hideList.forEach(($hide) => {
+					$hide.classList.remove('hide')
+				})
+
+				event.target.remove()
+			}
+		</script>
+	</body>
+</html>

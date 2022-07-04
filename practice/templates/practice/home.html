@@ -6,7 +6,58 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="{% static 'css/global.css' %}" />
-		<title>Document</title>
+		<title>Piro17 JS</title>
+		<link
+			rel="stylesheet"
+			as="style"
+			crossorigin
+			href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.4/dist/web/static/pretendard.css"
+		/>
 	</head>
-	<body></body>
+	<body>
+		<div class="container">
+			<a href="https://www.notion.so/bumsu/17-08f3e1d618bd420cab5662c2ca1bdfd2"
+				>Notion</a
+			>
+			<a href="/practice">Practice</a>
+			<a href="/modal">Modal</a>
+			<a href="/infinite-scroll">Infinite Scroll</a>
+		</div>
+
+		<style>
+			.container {
+				width: 100vw;
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 8px;
+				background: linear-gradient(#80ffdb, #5390d9);
+				letter-spacing: 0.5px;
+			}
+
+			a:visited,
+			a:hover {
+				color: #fff;
+				text-decoration: none;
+			}
+
+			a {
+				font-family: 'Pretendard';
+				color: #fff;
+				font-size: 24px;
+				font-weight: 500;
+				line-height: 1.8;
+				padding: 4px 12px;
+				border-radius: 2px;
+				transition: 0.3s;
+			}
+
+			a:hover {
+				background-color: #ffffff20;
+				box-shadow: 0 2px 4px #00000012;
+			}
+		</style>
+	</body>
 </html>

@@ -7,3 +7,11 @@ def home(request):
 
 def practice(request):
     return render(request, 'practice/practice.html')
+
+
+def modal(request):
+    return render(request, 'practice/modal.html')
+
+
+def infinite_scroll(request):
+    return render(request, 'practice/infinite_scroll.html')

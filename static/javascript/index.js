@@ -32,7 +32,7 @@ function Router() {
 const router = new Router()
 const app = document.querySelector('#app')
 
-router.route(location.pathname.replace('/', ''))
+router.route(location.pathname.replace('/quiz/', ''))
 window.addEventListener('popstate', () => {
-	router.route(location.pathname.replace('/', ''))
+	router.route(location.pathname.replace('/quiz/', ''))
 })

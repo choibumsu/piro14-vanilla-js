@@ -12,6 +12,8 @@ def practice(request):
 def modal(request):
     return render(request, 'practice/modal.html')
 
+def accordion(request):
+    return render(request, 'practice/accordion.html')
 
 def infinite_scroll(request):
     return render(request, 'practice/infinite_scroll.html')

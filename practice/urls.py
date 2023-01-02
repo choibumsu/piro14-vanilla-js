@@ -7,5 +7,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('practice', views.practice, name='practice'),
     path('modal', views.modal, name='modal'),
+    path('accordion', views.accordion, name='accordion'),
     path('infinite-scroll', views.infinite_scroll, name='infinite_scroll')
 ]

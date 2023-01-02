@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <title>Piro18 JS</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.4/dist/web/static/pretendard.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <li class="item">
+          <div class="head-row">
+            <h3>제목1</h3>
+            <button>열기</button>
+          </div>
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum turpis vel nibh suscipit, eu
+            hendrerit mauris condimentum. Aliquam ultricies condimentum vulputate. Proin dolor est, vulputate et justo
+            nec, pharetra porttitor diam. Praesent felis enim, euismod sed luctus vel, lobortis placerat nulla. Etiam
+            convallis, arcu nec auctor fringilla, metus neque sagittis urna, quis finibus nisl lorem vitae ligula.
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+          </p>
+        </li>
+        <li class="item">
+          <div class="head-row">
+            <h3>제목2</h3>
+            <button>열기</button>
+          </div>
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum turpis vel nibh suscipit, eu
+            hendrerit mauris condimentum. Aliquam ultricies condimentum vulputate. Proin dolor est, vulputate et justo
+            nec, pharetra porttitor diam. Praesent felis enim, euismod sed luctus vel, lobortis placerat nulla. Etiam
+            convallis, arcu nec auctor fringilla, metus neque sagittis urna, quis finibus nisl lorem vitae ligula.
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+          </p>
+        </li>
+        <li class="item">
+          <div class="head-row">
+            <h3>제목3</h3>
+            <button>열기</button>
+          </div>
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum turpis vel nibh suscipit, eu
+            hendrerit mauris condimentum. Aliquam ultricies condimentum vulputate. Proin dolor est, vulputate et justo
+            nec, pharetra porttitor diam. Praesent felis enim, euismod sed luctus vel, lobortis placerat nulla. Etiam
+            convallis, arcu nec auctor fringilla, metus neque sagittis urna, quis finibus nisl lorem vitae ligula.
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const $buttons = document.querySelectorAll('.item button')
+
+      const closeAccordionItem = ($item) => {
+        const $button = $item.querySelector('button')
+
+        $item.classList.remove('open')
+        $button.innerText = '열기'
+      }
+
+      const openAccordionItem = ($item) => {
+        const $button = $item.querySelector('button')
+
+        $item.classList.add('open')
+        $button.innerText = '닫기'
+      }
+
+      const toggleAccordionItem = ($item) => {
+        if ($item.classList.contains('open')) {
+          closeAccordionItem($item)
+        } else {
+          openAccordionItem($item)
+        }
+      }
+
+      const accordionButtonClickHandler = (e) => {
+        $buttons.forEach(($beClosedItemButton) => {
+          if ($beClosedItemButton !== e.target) {
+            const $item = $beClosedItemButton.closest('.item')
+            closeAccordionItem($item)
+          }
+        })
+
+        const $item = e.target.closest('.item')
+        toggleAccordionItem($item)
+      }
+
+      $buttons.forEach(($button) => {
+        $button.addEventListener('click', accordionButtonClickHandler)
+      })
+    </script>
+
+    <style>
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .item {
+        width: 500px;
+        background-color: white;
+        border: 1px solid lightgray;
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+
+      .item.open .content {
+        display: block;
+      }
+
+      .content {
+        display: none;
+        padding: 12px;
+        border-top: 1px solid lightgray;
+      }
+
+      .head-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 12px;
+      }
+
+      button {
+        font-family: 'Pretendard';
+        font-weight: 500;
+        font-size: 16px;
+        padding: 8px 10px;
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        transition: 0.2s;
+        color: #222;
+      }
+
+      button:hover {
+        background-color: #f3f3f3;
+      }
+    </style>
+  </body>
+</html>
